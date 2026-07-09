@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiant Repair — Full-Service Solar Management & Service</title>
+<meta name="description" content="Radiant Repair keeps your solar systems producing. Monitoring, maintenance, repairs, and optimization for homeowners and businesses in South Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1b2a;
+    --navy-2:#132a3e;
+    --amber:#ffb52e;
+    --amber-soft:#ffcf6b;
+    --green:#2ec4a6;
+    --ink:#0d1b2a;
+    --muted:#5b6b7a;
+    --line:#e7edf2;
+    --bg:#ffffff;
+    --bg-soft:#f5f8fb;
+    --radius:18px;
+    --shadow:0 20px 50px -25px rgba(13,27,42,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.02em}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%}
+  .wrap{width:min(1160px,92%);margin:0 auto}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;padding:.85rem 1.5rem;border-radius:999px;border:1px solid transparent;cursor:pointer;font-size:.98rem;transition:transform .15s ease,box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(135deg,var(--amber),var(--amber-soft));color:#3a2600;box-shadow:0 12px 30px -12px rgba(255,181,46,.7)}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-dark{background:var(--navy);color:#fff}
+  .eyebrow{display:inline-block;font-family:'Sora',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.25rem;color:var(--navy)}
+  .brand .mark{width:34px;height:34px;display:grid;place-items:center;background:linear-gradient(135deg,var(--amber),var(--green));border-radius:10px;color:#fff}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-weight:500;color:var(--muted);font-size:.96rem}
+  .nav-links a:hover{color:var(--navy)}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .hamburger{display:none;background:none;border:0;cursor:pointer}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s}
+
+  /* HERO */
+  .hero{position:relative;background:radial-gradient(1200px 500px at 80% -10%,#1b3a55 0,var(--navy) 55%);color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(255,181,46,.55),transparent 62%);filter:blur(10px)}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:5.5rem 0 5rem;position:relative;z-index:2}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.7rem);font-weight:800}
+  .hero h1 span{color:var(--amber)}
+  .hero p.lead{margin:1.4rem 0 2rem;font-size:1.15rem;color:#c7d5e2;max-width:32rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-badges{margin-top:2.5rem;display:flex;gap:1.8rem;flex-wrap:wrap;color:#aebfce;font-size:.92rem}
+  .hero-badges div{display:flex;align-items:center;gap:.5rem}
+  .hero-card{background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:1.8rem;backdrop-filter:blur(6px)}
+  .panel-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.5rem}
+  .panel-visual i{aspect-ratio:1;border-radius:6px;background:linear-gradient(135deg,#24486a,#2ec4a6);opacity:.85;display:block}
+  .panel-visual i:nth-child(odd){background:linear-gradient(135deg,#2b5479,#ffb52e);opacity:.9}
+  .hero-stat{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem 0;border-top:1px solid rgba(255,255,255,.12)}
+  .hero-stat b{font-family:'Sora';font-size:1.5rem;color:#fff}
+  .hero-stat small{color:#aebfce}
+
+  /* STATS BAR */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;padding:2.5rem 0;border-bottom:1px solid var(--line)}
+  .stats .num{font-family:'Sora';font-weight:800;font-size:2.1rem;color:var(--navy)}
+  .stats .lbl{color:var(--muted);font-size:.92rem;margin-top:.2rem}
+  .stats .num em{color:var(--green);font-style:normal}
+
+  /* SECTION */
+  section{padding:5.5rem 0}
+  .sec-head{max-width:44rem;margin-bottom:3rem}
+  .sec-head h2{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:800;margin-top:.6rem}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin-top:.8rem}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* SERVICES */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+  .card .ico{width:52px;height:52px;border-radius:13px;display:grid;place-items:center;background:var(--bg-soft);color:var(--green);margin-bottom:1.1rem}
+  .card h3{font-size:1.2rem;margin-bottom:.5rem}
+  .card p{color:var(--muted);font-size:.97rem}
+
+  /* PROCESS */
+  .process{background:var(--bg-soft)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:step}
+  .step{position:relative;padding-top:1rem}
+  .step .n{counter-increment:step;font-family:'Sora';font-weight:800;font-size:1rem;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;margin-bottom:1rem}
+  .step .n::before{content:"0" counter(step)}
+  .step h3{font-size:1.12rem;margin-bottom:.4rem}
+  .step p{color:var(--muted);font-size:.95rem}
+  .step:not(:last-child)::after{content:"";position:absolute;top:1.35rem;left:60px;right:-.75rem;height:2px;background:linear-gradient(90deg,var(--amber),transparent)}
+
+  /* WHY / SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+  .why-list{list-style:none;margin-top:1.6rem;display:grid;gap:1.1rem}
+  .why-list li{display:flex;gap:.9rem;align-items:flex-start}
+  .why-list .tick{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(46,196,166,.15);color:var(--green);display:grid;place-items:center;margin-top:2px}
+  .why-list b{display:block;font-family:'Sora';font-size:1.02rem}
+  .why-list span{color:var(--muted);font-size:.95rem}
+  .why-visual{background:linear-gradient(160deg,var(--navy),var(--navy-2));border-radius:24px;padding:2.5rem;color:#fff;box-shadow:var(--shadow)}
+  .why-visual .big{font-family:'Sora';font-weight:800;font-size:3rem;color:var(--amber);line-height:1}
+  .why-visual .row{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.12);align-items:center}
+  .why-visual .row:last-child{border:0}
+  .why-visual small{color:#aebfce}
+
+  /* TESTIMONIALS */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .quote{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem}
+  .quote .stars{color:var(--amber);letter-spacing:2px;margin-bottom:.8rem}
+  .quote p{font-size:1rem;color:#33475b}
+  .quote .who{margin-top:1.2rem;display:flex;align-items:center;gap:.8rem}
+  .quote .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--green));display:grid;place-items:center;color:#fff;font-family:'Sora';font-weight:700}
+  .quote .who b{font-family:'Sora';font-size:.95rem}
+  .quote .who small{color:var(--muted)}
+
+  /* CTA */
+  .cta-band{background:linear-gradient(120deg,var(--amber),var(--amber-soft));border-radius:26px;padding:3.2rem;text-align:center;color:#3a2600}
+  .cta-band h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800}
+  .cta-band p{margin:.8rem auto 1.8rem;max-width:34rem;font-size:1.08rem;color:#5a3d00}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#c7d5e2;padding:4rem 0 2rem;margin-top:0}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand{color:#fff}
+  footer h4{font-family:'Sora';color:#fff;font-size:1rem;margin-bottom:1rem}
+  footer ul{list-style:none;display:grid;gap:.6rem}
+  footer a{color:#aebfce;font-size:.95rem}
+  footer a:hover{color:var(--amber)}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:1.5rem;font-size:.88rem;color:#8199b0}
+
+  @media(max-width:900px){
+    .hero-grid,.split{grid-template-columns:1fr;gap:2.2rem}
+    .cards,.quotes{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .step::after{display:none}
+    .stats{grid-template-columns:1fr 1fr;gap:2rem}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:1.2rem 5%;gap:1.1rem;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}
+    .hamburger{display:block}
+  }
+  @media(max-width:560px){
+    .cards,.quotes,.steps,.stats,.foot-grid{grid-template-columns:1fr}
+    .cta-band{padding:2.2rem 1.4rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand">
+        <span class="mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </span>
+        Radiant Repair
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#why">Why Us</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Full-Service Solar Management</span>
+          <h1>Keep your solar <span>producing</span> — season after season.</h1>
+          <p class="lead">Radiant Repair monitors, maintains, and optimizes solar electricity systems for homeowners and businesses across the Southwest US. When something needs attention, we're already on it.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Schedule Service →</a>
+            <a href="#services" class="btn btn-ghost">Explore Services</a>
+          </div>
+          <div class="hero-badges">
+            <div>✔ Licensed & Insured</div>
+            <div>✔ Same-Week Dispatch</div>
+            <div>✔ All Panel Brands</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="panel-visual"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hero-stat"><small>System Health</small><b>98.4%</b></div>
+          <div class="hero-stat"><small>Avg. Response Time</small><b>&lt; 24 hrs</b></div>
+          <div class="hero-stat"><small>Energy Recovered YTD</small><b>1.2 GWh</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="wrap">
+    <div class="stats">
+      <div><div class="num">12<em>+</em></div><div class="lbl">Years in solar service</div></div>
+      <div><div class="num">3,400<em>+</em></div><div class="lbl">Systems under care</div></div>
+      <div><div class="num">99<em>%</em></div><div class="lbl">On-time SLA delivery</div></div>
+      <div><div class="num">4.9<em>★</em></div><div class="lbl">Average customer rating</div></div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What We Do</span>
+        <h2>Everything your solar system needs, under one roof.</h2>
+        <p>From daily performance monitoring to on-site repairs, we take on the complexity of keeping clean energy flowing so you don't have to.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+          <h3>Performance Monitoring</h3>
+          <p>Continuous tracking of production and system health, so underperformance is caught before it costs you power.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2z"/></svg></div>
+          <h3>Maintenance & Repairs</h3>
+          <p>Skilled technicians handle inverter faults, wiring issues, panel damage, and everything in between.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3>System Optimization</h3>
+          <p>Tuning and cleaning to lift output — recovering the production your system was designed to deliver.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h3>Emergency Service</h3>
+          <p>Fast-response dispatch for outages and safety issues, with same-week scheduling across the region.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/></svg></div>
+          <h3>Upgrades & Renovations</h3>
+          <p>Battery storage, panel additions, and system modernization to grow with your energy needs.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Warranty & Support</h3>
+          <p>Ongoing service plans and warranty coordination that keep your investment protected for the long haul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How It Works</span>
+        <h2>From first call to final sign-off — organized and on time.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n"></div><h3>Request</h3><p>Open a service request online or by phone. Tell us what's happening — we handle the rest.</p></div>
+        <div class="step"><div class="n"></div><h3>Diagnose</h3><p>We review your system data and pinpoint the issue, matching the right skills to the job.</p></div>
+        <div class="step"><div class="n"></div><h3>Dispatch</h3><p>Our dispatchers schedule the ideal technician, protecting your service timeline.</p></div>
+        <div class="step"><div class="n"></div><h3>Complete</h3><p>Work gets done right the first time, with clear updates until your system is back at full output.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Why Radiant Repair</span>
+          <h2 style="font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:800;margin-top:.6rem">Reliability you can measure.</h2>
+          <ul class="why-list">
+            <li><span class="tick">✓</span><div><b>Right technician, right job</b><span>We match every service call to the technician best equipped to solve it.</span></div></li>
+            <li><span class="tick">✓</span><div><b>SLA-first scheduling</b><span>Work is sequenced to honor the commitments we make — no missed windows.</span></div></li>
+            <li><span class="tick">✓</span><div><b>Connected, informed service</b><span>Customer history, system data, and availability come together on every job.</span></div></li>
+            <li><span class="tick">✓</span><div><b>Clear communication</b><span>You and your field team stay in the loop from dispatch to completion.</span></div></li>
+          </ul>
+        </div>
+        <div class="why-visual">
+          <div class="big">1.2 GWh</div>
+          <p style="color:#aebfce;margin:.4rem 0 1.5rem">Clean energy recovered for our customers this year through proactive service.</p>
+          <div class="row"><span>Systems monitored</span><b>3,400+</b></div>
+          <div class="row"><span>Avg. response</span><b>&lt; 24 hrs</b></div>
+          <div class="row"><span>First-visit fix rate</span><b>94%</b></div>
+          <div class="row"><span>Customer rating</span><b>4.9 ★</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="process">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">About Us</span>
+        <h2>Solar should be effortless for the people who own it.</h2>
+        <p>Based in Marfa, Texas, Radiant Repair is a full-service solar electricity management and service organization. We help homeowners and businesses get the most from their solar investment — from system health and performance monitoring to on-site maintenance, repairs, and upgrades. We take on the complexity of managing and optimizing your system, so you can enjoy reliable, efficient clean energy without the headaches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">Customer Stories</span>
+        <h2>Trusted by homeowners and businesses alike.</h2>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"Our production dropped and Radiant Repair caught it before we even noticed. Technician was out within two days and dialed everything back in."</p>
+          <div class="who"><div class="av">DM</div><div><b>Dana M.</b><br><small>Homeowner, Alpine, TX</small></div></div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"They manage the solar across three of our commercial properties. One point of contact, always on schedule, and the reporting is excellent."</p>
+          <div class="who"><div class="av">RT</div><div><b>Reuben T.</b><br><small>Facilities Director</small></div></div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"Professional from the first call to the final sign-off. It genuinely feels like they care whether our panels are producing."</p>
+          <div class="who"><div class="av">SL</div><div><b>Sofia L.</b><br><small>Homeowner, Marfa, TX</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Let's get your system performing at its best.</h2>
+        <p>Schedule a service visit or request a free system health check. Our team responds fast — usually within one business day.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="#contact" class="btn btn-dark">Request Service</a>
+          <a href="#services" class="btn" style="background:#fff;color:var(--navy)">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem">
+          <span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+          Radiant Repair
+        </div>
+        <p style="max-width:22rem;font-size:.95rem">Full-service solar electricity management and service, keeping clean energy systems producing across the Southwest US.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Monitoring</a></li>
+          <li><a href="#services">Maintenance</a></li>
+          <li><a href="#services">Optimization</a></li>
+          <li><a href="#services">Upgrades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="#contact">Request Service</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li>Marfa, TX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Radiant Repair. All rights reserved.</span>
+      <span>Licensed & Insured · Serving the Southwest US</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('hamburger');
+  const links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>
